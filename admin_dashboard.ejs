@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard</h1>
+    <nav>
+      <a href="/admin/logout">Logout</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Donor List</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Blood Group</th>
+        <th>Organ Donated</th>
+        <th>Contact</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Donation Date</th>
+      </tr>
+      <% donors.forEach(donor => { %>
+        <tr>
+          <td><%= donor.name %></td>
+          <td><%= donor.age %></td>
+          <td><%= donor.blood_group %></td>
+          <td><%= donor.organ_donated %></td>
+          <td><%= donor.contact_number %></td>
+          <td><%= donor.email %></td>
+          <td><%= donor.address %></td>
+          <td><%= donor.donation_date %></td>
+        </tr>
+      <% }); %>
+    </table>
+
+    <h2>Recipient List</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Blood Group</th>
+        <th>Organ Required</th>
+        <th>Contact</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Registration Date</th>
+      </tr>
+      <% recipients.forEach(recipient => { %>
+        <tr>
+          <td><%= recipient.name %></td>
+          <td><%= recipient.age %></td>
+          <td><%= recipient.blood_group %></td>
+          <td><%= recipient.organ_required %></td>
+          <td><%= recipient.contact_number %></td>
+          <td><%= recipient.email %></td>
+          <td><%= recipient.address %></td>
+          <td><%= recipient.registration_date %></td>
+        </tr>
+      <% }); %>
+    </table>
+  </section>
+</body>
+</html>

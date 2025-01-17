@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipient</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Add a Recipient</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/add-donor">Add Donor</a>
+            <a href="/add-recipient">Add Recipient</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <form action="/add-recipient" method="POST">
+            <!-- Full Name -->
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Full Name" required>
+            
+            <!-- Age -->
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" placeholder="Age" required>
+            
+            <!-- Blood Group -->
+            <label for="blood_group">Blood Group</label>
+            <input type="text" id="blood_group" name="blood_group" placeholder="Blood Group">
+            
+            <!-- Organ Required -->
+            <label for="organ_required">Organ Required</label>
+            <textarea id="organ_required" name="organ_required" placeholder="Organ Required" required></textarea>
+            
+            <!-- Contact Number -->
+            <label for="contact_number">Contact Number</label>
+            <input type="text" id="contact_number" name="contact_number" placeholder="Contact Number">
+            
+            <!-- Email Address -->
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+            
+            <!-- Address -->
+            <label for="address">Address</label>
+            <textarea id="address" name="address" placeholder="Address"></textarea>
+            
+            <!-- Registration Date -->
+            <label for="registration_date">Registration Date</label>
+            <input type="date" id="registration_date" name="registration_date" required>
+            
+            <!-- Submit Button -->
+            <button type="submit">Submit Recipient</button>
+        </form>
+    </div>
+</body>
+</html>

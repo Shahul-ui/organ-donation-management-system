@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <h2>Donors</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Organ Donated</th>
+                <th>Blood Group</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% donors.forEach(donor => { %>
+                <tr>
+                    <td><%= donor.donor_id %></td>
+                    <td><%= donor.name %></td>
+                    <td><%= donor.organ_donated %></td>
+                    <td><%= donor.blood_group %></td>
+                    <td><%= donor.email %></td>
+                    <td><%= donor.status || 'Pending' %></td>
+                    <td>
+                        <form action="/update-status" method="POST">
+                            <input type="hidden" name="id" value="<%= donor.donor_id %>">
+                            <input type="hidden" name="table" value="donors">
+                            <input type="hidden" name="email" value="<%= donor.email %>">
+                            <select name="status">
+                                <option value="Approved">Approve</option>
+                                <option value="Rejected">Reject</option>
+                                <option value="Waiting List">Waiting List</option>
+                            </select>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <h2>Recipients</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Organ Required</th>
+                <th>Blood Group</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% recipients.forEach(recipient => { %>
+                <tr>
+                    <td><%= recipient.recipient_id %></td>
+                    <td><%= recipient.name %></td>
+                    <td><%= recipient.organ_required %></td>
+                    <td><%= recipient.blood_group %></td>
+                    <td><%= recipient.email %></td>
+                    <td><%= recipient.status || 'Pending' %></td>
+                    <td>
+                        <form action="/update-status" method="POST">
+                            <input type="hidden" name="id" value="<%= recipient.recipient_id %>">
+                            <input type="hidden" name="table" value="recipients">
+                            <input type="hidden" name="email" value="<%= recipient.email %>">
+                            <select name="status">
+                                <option value="Approved">Approve</option>
+                                <option value="Rejected">Reject</option>
+                                <option value="Waiting List">Waiting List</option>
+                            </select>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
