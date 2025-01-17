@@ -11,7 +11,7 @@ const port = 3000;
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root', // Your MySQL username
-  password: 'Shahul@037', // Your MySQL password
+  password: 'MYSQLPASSWORD', // Your MySQL password
   database: 'organ_donation_system', // Your MySQL database name
 });
 
